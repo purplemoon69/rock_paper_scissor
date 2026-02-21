@@ -40,8 +40,10 @@ function displayEnd() {
 }
 
 function displayRound(playerSelection, computerSelection, winner) {
-    document.querySelector(".playerChoice").textContent = `You chose: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
-    document.querySelector(".computerChoice").textContent = `The computer chose: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`;
+    document.querySelector(".playerChoice").textContent = 
+        `You chose: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
+    document.querySelector(".computerChoice").textContent = 
+        `The computer chose: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`;
     displayRoundWinner(winner);
 }
 
@@ -65,7 +67,15 @@ function tallyWins() {
 }
 
 function getComputerChoice() {
-    return choices[Math.floor(Math.random() * choices.length)];
+    const choice = choices[Math.floor(Math.random() * choices.length)];
+    
+    document.querySelector(`.${choice}`).classList.add("active");
+
+    setTimeout(() => {
+        document.querySelector(`.${choice}`).classList.remove("active")
+    }, 700);
+    
+    return choice;
 }
 
 function checkWins() {
