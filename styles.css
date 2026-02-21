@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
     overflow-x: hidden;
     overflow-y: hidden;
     background-color: #99edc3;
@@ -24,6 +24,9 @@ body {
 img {
     width: 90px;
     height: 90px;
+    transition: all 0.3s ease-in-out /* This property adds a transition
+    ALL means "If any style changes on this element (width, height, color, opacity, etc.),then 0.3s means animate that change over 0.3 seconds, and ease-in-out means 
+    the timing function. It starts slow, speeds up in the middle, and ends slow, making the movement feel "natural" rather than robotic." */
 }
 
 .pImg:hover {
@@ -61,4 +64,7 @@ img {
 .active {
     width: 110px;
     height: 110px;
+    transform: rotate(5deg); /* Tilts the image slightly and smooth because of the transition: all property */ 
+    filter: drop-shadow(0 0 10px gold); /* drop shadow it adds a glow around the actual image rather than the exterior outline
+    0 means horizontal shadow, 0 means vertical shadow, 10px the intensity of the shadow, and last it is the color */
 }
